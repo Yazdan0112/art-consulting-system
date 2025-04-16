@@ -1,5 +1,8 @@
 Video Demo: https://drive.google.com/drive/folders/1mo18NQSEIw33gPSPHCB39y98y554xLHG?usp=drive_link
 
+Project done by: Yazdan Syed(40221602)
+                 Vlad Tita (40209853)
+
 
  Project Setup Instructions
 
