@@ -1,0 +1,25 @@
+context Expert
+inv NoDoubleBooking:
+  self.services->forAll(s1, s2 |
+    s1 <> s2 implies (
+      s1.date <> s2.date or
+      s1.startTime >= s2.endTime or
+      s1.endTime <= s2.startTime
+    )
+  )
+
+context ServiceRequest
+inv ConsultingWithinAuctionTime:
+  self.auctionSchedule.startTime <= self.startTime and
+  self.auctionSchedule.endTime >= self.endTime and
+  self.date = self.auctionSchedule.date
+
+context Client
+inv NoOverlappingRequests:
+  self.serviceRequests->forAll(r1, r2 |
+    r1 <> r2 implies (
+      r1.date <> r2.date or
+      r1.startTime >= r2.endTime or
+      r1.endTime <= r2.startTime
+    )
+  )
